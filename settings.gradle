@@ -1,0 +1,1 @@
+include ':app', ':common-lib', ':base-lib', ':component-share', ':component-reader', ':component-main', ':gradle-plugin'
