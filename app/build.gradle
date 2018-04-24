@@ -1,5 +1,5 @@
-apply plugin: 'com.android.application'
-
+apply plugin: 'com.muse.plugin'
+//apply plugin: 'com.android.application'
 android {
     compileSdkVersion 26
     defaultConfig {
@@ -12,6 +12,11 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
+        debug {
+            signingConfig signingConfigs.debug
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
@@ -22,8 +27,10 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation project(path: ':common-lib')
-    api project(path: ':component-main')
-    api project(path: ':component-share')
-    api project(path: ':component-reader')
 
+
+}
+AssembleExt{
+    applicationName = "com.uowee.sample.app.AppApplication"
+    isRegisterAuto = true
 }

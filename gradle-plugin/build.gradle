@@ -1,4 +1,5 @@
 apply plugin: 'groovy'
+apply plugin: 'maven'
 
 dependencies {
     implementation 'com.android.tools.build:gradle:3.0.0'
@@ -8,4 +9,13 @@ dependencies {
     //groovy sdk
     implementation localGroovy()
 }
+group='com.muse.plugin'
+version='1.0.0'
 
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            repository(url: uri('../repo'))
+        }
+    }
+}

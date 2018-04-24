@@ -6,7 +6,6 @@
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/base-lib/base-lib.iml" filepath="$PROJECT_DIR$/base-lib/base-lib.iml" />
       <module fileurl="file://$PROJECT_DIR$/common-lib/common-lib.iml" filepath="$PROJECT_DIR$/common-lib/common-lib.iml" />
-      <module fileurl="file://$PROJECT_DIR$/component-main/component-main.iml" filepath="$PROJECT_DIR$/component-main/component-main.iml" />
       <module fileurl="file://$PROJECT_DIR$/component-reader/component-reader.iml" filepath="$PROJECT_DIR$/component-reader/component-reader.iml" />
       <module fileurl="file://$PROJECT_DIR$/component-share/component-share.iml" filepath="$PROJECT_DIR$/component-share/component-share.iml" />
       <module fileurl="file://$PROJECT_DIR$/gradle-plugin/gradle-plugin.iml" filepath="$PROJECT_DIR$/gradle-plugin/gradle-plugin.iml" />

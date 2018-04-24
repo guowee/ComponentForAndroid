@@ -1,8 +1,5 @@
-if (isRunAlone.toBoolean()) {
-    apply plugin: 'com.android.application'
-} else {
-    apply plugin: 'com.android.library'
-}
+apply plugin: 'com.muse.plugin'
+//apply plugin: 'com.android.application'
 
 
 android {
@@ -31,19 +28,6 @@ android {
         }
     }
 
-    sourceSets {
-        main {
-            if (isRunAlone.toBoolean()) {
-                manifest.srcFile 'src/main/runalone/AndroidManifest.xml'
-            } else {
-                manifest.srcFile 'src/main/AndroidManifest.xml'
-                java {
-                    exclude 'runalone/**'
-                }
-            }
-        }
-    }
-
     resourcePrefix "reader_"
 }
 
@@ -51,4 +35,9 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation project(path: ':common-lib')
     annotationProcessor 'com.alibaba:arouter-compiler:1.1.4'
+}
+
+AssembleExt{
+    applicationName = "com.uowee.reader.runalone.app.ReaderApplication"
+    isRegisterAuto = true
 }

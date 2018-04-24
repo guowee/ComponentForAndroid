@@ -11,7 +11,6 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/base-lib" />
             <option value="$PROJECT_DIR$/common-lib" />
-            <option value="$PROJECT_DIR$/component-main" />
             <option value="$PROJECT_DIR$/component-reader" />
             <option value="$PROJECT_DIR$/component-share" />
             <option value="$PROJECT_DIR$/gradle-plugin" />
