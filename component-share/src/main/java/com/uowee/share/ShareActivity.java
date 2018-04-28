@@ -2,8 +2,9 @@ package com.uowee.share;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import com.muse.router.facade.annotation.Route;
 
-import com.alibaba.android.arouter.facade.annotation.Route;
+//import com.alibaba.android.arouter.facade.annotation.Route;
 
 @Route(path = "/share/center")
 public class ShareActivity extends AppCompatActivity {

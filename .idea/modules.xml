@@ -9,6 +9,9 @@
       <module fileurl="file://$PROJECT_DIR$/component-reader/component-reader.iml" filepath="$PROJECT_DIR$/component-reader/component-reader.iml" />
       <module fileurl="file://$PROJECT_DIR$/component-share/component-share.iml" filepath="$PROJECT_DIR$/component-share/component-share.iml" />
       <module fileurl="file://$PROJECT_DIR$/gradle-plugin/gradle-plugin.iml" filepath="$PROJECT_DIR$/gradle-plugin/gradle-plugin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/router-annotation/router-annotation.iml" filepath="$PROJECT_DIR$/router-annotation/router-annotation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/router-api/router-api.iml" filepath="$PROJECT_DIR$/router-api/router-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/router-compiler/router-compiler.iml" filepath="$PROJECT_DIR$/router-compiler/router-compiler.iml" />
     </modules>
   </component>
 </project>

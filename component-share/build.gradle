@@ -38,6 +38,7 @@ dependencies {
     implementation project(path: ':common-lib')
     annotationProcessor 'com.alibaba:arouter-compiler:1.1.4'
 }
+
 AssembleExt {
     applicationName = "com.uowee.share.runalone.app.ShareApplication"
     isRegisterAuto = true

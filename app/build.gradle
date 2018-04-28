@@ -30,6 +30,7 @@ dependencies {
 
 
 }
+
 AssembleExt{
     applicationName = "com.uowee.sample.app.AppApplication"
     isRegisterAuto = true
