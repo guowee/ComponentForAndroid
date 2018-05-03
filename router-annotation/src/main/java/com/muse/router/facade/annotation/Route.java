@@ -13,5 +13,8 @@ import java.lang.annotation.Target;
 public @interface Route {
     String path();
 
+    @Deprecated
+    int priority() default -1;
+
     String desc() default "";
 }

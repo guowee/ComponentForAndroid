@@ -16,7 +16,7 @@ public class Node {
     private Class<?> destination;
     private String path;            // Path of route
     private String desc;            // Desc of route
-
+    private int priority = -1;
     private Map<String, Integer> paramsType;
     private Map<String, String> paramsDesc;
 
@@ -74,5 +74,13 @@ public class Node {
 
     public void setDesc(String desc) {
         this.desc = desc;
+    }
+
+    public int getPriority() {
+        return priority;
+    }
+
+    public void setPriority(int priority) {
+        this.priority = priority;
     }
 }

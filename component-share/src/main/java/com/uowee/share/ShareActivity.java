@@ -4,9 +4,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import com.muse.router.facade.annotation.Route;
 
-//import com.alibaba.android.arouter.facade.annotation.Route;
 
-@Route(path = "/share/center")
+@Route(path = "/share")
 public class ShareActivity extends AppCompatActivity {
 
     @Override

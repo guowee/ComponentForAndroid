@@ -12,7 +12,7 @@ public interface Constants {
     String ANNOTATION_TYPE_ROUTE = ANNO_FACADE_PKG + ".annotation.Route";
     String ANNOTATION_TYPE_AUTOWIRED = ANNO_FACADE_PKG + ".annotation.Autowired";
 
-    String PREFIX_OF_LOGGER = "[Router_Anno_Compiler]---";
+    String PREFIX_OF_LOGGER = "[Router_ANNO_Compiler]---";
 
     // System interface
     String ACTIVITY = "android.app.Activity";
@@ -34,7 +34,8 @@ public interface Constants {
     String BOOLEAN = LANG + ".Boolean";
     String STRING = LANG + ".String";
 
-
+    String ISYRINGE = "com.muse.router.ISyringe";
+    String JSON_SERVICE = "com.muse.router.service.JsonService";
     String BASECOMPROUTER = "com.muse.router.BaseComponentRouter";
 
 }

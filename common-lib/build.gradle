@@ -30,8 +30,6 @@ dependencies {
     androidTestApi 'com.android.support.test:runner:1.0.1'
     androidTestApi 'com.android.support.test.espresso:espresso-core:3.0.1'
     api project(':base-lib')
-    api 'com.alibaba:arouter-api:1.3.1'
 
     api project(':router-api')
-    annotationProcessor project(':router-compiler')
 }

@@ -42,7 +42,6 @@ import javax.lang.model.util.Elements;
 import javax.lang.model.util.Types;
 
 import static com.muse.router.compiler.utils.Constants.ACTIVITY;
-import static com.muse.router.compiler.utils.Constants.ANNOTATION_TYPE_AUTOWIRED;
 import static com.muse.router.compiler.utils.Constants.ANNOTATION_TYPE_ROUTE;
 import static com.muse.router.compiler.utils.Constants.BASECOMPROUTER;
 import static com.muse.router.compiler.utils.Constants.KEY_HOST_NAME;
@@ -55,7 +54,7 @@ import static javax.lang.model.element.Modifier.PUBLIC;
 @AutoService(Processor.class)
 @SupportedOptions(KEY_HOST_NAME)
 @SupportedSourceVersion(SourceVersion.RELEASE_7)
-@SupportedAnnotationTypes({ANNOTATION_TYPE_ROUTE, ANNOTATION_TYPE_AUTOWIRED})
+@SupportedAnnotationTypes({ANNOTATION_TYPE_ROUTE})
 public class RouterProcessor extends AbstractProcessor {
     private static final String mRouteMapperFieldName = "routeMapper";
     private static final String mParamsMapperFieldName = "paramsMapper";
@@ -64,14 +63,11 @@ public class RouterProcessor extends AbstractProcessor {
     private Types types;
 
     private Logger logger;
+    private TypeMirror typeString;
 
     private List<Node> routeNodes;
     private TypeUtils typeUtils;
-
     private String host = null;
-
-    private TypeMirror typeString;
-
 
     @Override
     public synchronized void init(ProcessingEnvironment processingEnv) {
@@ -81,9 +77,11 @@ public class RouterProcessor extends AbstractProcessor {
         mFiler = processingEnv.getFiler();
         types = processingEnv.getTypeUtils();
         elements = processingEnv.getElementUtils();
-        logger = new Logger(processingEnv.getMessager());
         typeUtils = new TypeUtils(types, elements);
+
         typeString = elements.getTypeElement(STRING).asType();
+
+        logger = new Logger(processingEnv.getMessager());
 
         Map<String, String> options = processingEnv.getOptions();
         if (MapUtils.isNotEmpty(options)) {
@@ -95,11 +93,12 @@ public class RouterProcessor extends AbstractProcessor {
         }
         logger.info(">>> RouteProcessor init. <<<");
 
-
     }
+
 
     @Override
     public boolean process(Set<? extends TypeElement> annotations, RoundEnvironment roundEnv) {
+
         if (CollectionUtils.isNotEmpty(annotations)) {
             Set<? extends Element> routes = roundEnv.getElementsAnnotatedWith(Route.class);
             try {
@@ -110,7 +109,7 @@ public class RouterProcessor extends AbstractProcessor {
             }
 
             brewJavaForRouterImpl();
-
+            return true;
         }
         return false;
     }
@@ -120,6 +119,7 @@ public class RouterProcessor extends AbstractProcessor {
         for (Element element : routes) {
             TypeMirror tm = element.asType();
             Route route = element.getAnnotation(Route.class);
+
             if (types.isSubtype(tm, typeActivity)) {  // Activity
                 logger.info(">>> Found activity route: " + tm.toString() + " <<<");
                 Node node = new Node();
@@ -128,6 +128,7 @@ public class RouterProcessor extends AbstractProcessor {
 
                 node.setPath(path);
                 node.setDesc(route.desc());
+                node.setPriority(route.priority());
                 node.setNodeType(NodeType.ACTIVITY);
                 node.setRawType(element);
 
@@ -219,6 +220,7 @@ public class RouterProcessor extends AbstractProcessor {
                 .addModifiers(Modifier.PUBLIC);
         openUriMethodSpecBuilder.addStatement("super.initMap()");
         for (Node node : routeNodes) {
+            logger.info("-------------Node----------------:" + node.getRawType().asType());
             openUriMethodSpecBuilder.addStatement(
                     mRouteMapperFieldName + ".put($S,$T.class)",
                     node.getPath(),

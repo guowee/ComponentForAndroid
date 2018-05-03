@@ -3,9 +3,9 @@ package com.uowee.reader;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import com.alibaba.android.arouter.facade.annotation.Route;
+import com.muse.router.facade.annotation.Route;
 
-@Route(path = "/reader/test")
+@Route(path = "/reader")
 public class ReaderActivity extends AppCompatActivity {
 
     @Override
