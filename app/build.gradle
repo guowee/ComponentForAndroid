@@ -33,8 +33,6 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation project(path: ':common-lib')
-    annotationProcessor project(':router-compiler')
-
 }
 
 AssembleExt{

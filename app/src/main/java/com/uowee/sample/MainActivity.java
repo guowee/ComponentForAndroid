@@ -5,12 +5,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatButton;
 import android.view.View;
 
-//import com.alibaba.android.arouter.facade.annotation.Route;
-//import com.alibaba.android.arouter.launcher.ARouter;
-import com.muse.router.UIRouter;
-import com.muse.router.facade.annotation.Route;
+import com.alibaba.android.arouter.launcher.ARouter;
 
-@Route(path = "/main", desc = "首页")
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private AppCompatButton mShareBtn;
@@ -33,11 +29,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         int id = v.getId();
         switch (id) {
             case R.id.btn_share:
-                //ARouter.getInstance().build("/share/center").navigation();
-                UIRouter.getInstance().openUri(MainActivity.this, "/share", null);
+                ARouter.getInstance().build("/share/test").navigation();
                 break;
             case R.id.btn_reader:
-                // ARouter.getInstance().build("/reader/test").navigation();
+                ARouter.getInstance().build("/reader/test").navigation();
                 break;
             default:
                 break;

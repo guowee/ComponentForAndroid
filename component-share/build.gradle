@@ -17,7 +17,7 @@ android {
 
         javaCompileOptions {
             annotationProcessorOptions {
-                arguments = [host: "share"]
+                arguments = [moduleName: project.getName()]
             }
         }
     }
@@ -36,7 +36,7 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation project(path: ':common-lib')
-    annotationProcessor project(':router-compiler')
+    annotationProcessor 'com.alibaba:arouter-compiler:1.0.4'
 }
 
 AssembleExt {
