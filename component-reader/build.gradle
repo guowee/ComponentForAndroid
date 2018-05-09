@@ -3,21 +3,19 @@ apply plugin: 'com.muse.plugin'
 
 
 android {
-    compileSdkVersion 26
-
-
+    compileSdkVersion rootProject.ext.compileSdkVersion
 
     defaultConfig {
-        minSdkVersion 15
-        targetSdkVersion 26
-        versionCode 1
-        versionName "1.0"
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode rootProject.ext.versionCode
+        versionName rootProject.ext.versionName
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
         javaCompileOptions {
             annotationProcessorOptions {
-                arguments = [ moduleName : project.getName()]
+                arguments = [moduleName: project.getName()]
             }
         }
 
@@ -36,11 +34,11 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation project(path: ':common-lib')
-    annotationProcessor 'com.alibaba:arouter-compiler:1.0.4'
+    annotationProcessor "com.alibaba:arouter-compiler:$rootProject.ext.AROUTER_COMPILER_VERSION"
 }
 
 
-AssembleExt{
+AssembleExt {
     applicationName = "com.uowee.reader.runalone.app.ReaderApplication"
     isRegisterAuto = true
 }

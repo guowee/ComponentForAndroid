@@ -35,3 +35,23 @@ allprojects {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+
+
+ext {
+    //SDK
+    compileSdkVersion = 26
+    minSdkVersion = 15
+    targetSdkVersion = 26
+    versionCode = 1
+    versionName = "1.0"
+
+    // Dependencies Version
+    APPCOMPAT_VERSION = "26.1.0"
+    JUNIT_VERSION = "4.12"
+    RUNNER_VERSION = "1.0.1"
+    ESPRESSO_VERSION = "3.0.1"
+    CONSTRAINT_VERSION = "1.1.0"
+    AROUTER_API_VERSION = "1.3.1"
+    AROUTER_COMPILER_VERSION = "1.0.4"
+    JAVASSIST_VERSION = "3.20.0-GA"
+}

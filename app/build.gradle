@@ -1,13 +1,13 @@
 apply plugin: 'com.muse.plugin'
 //apply plugin: 'com.android.application'
 android {
-    compileSdkVersion 26
+    compileSdkVersion rootProject.ext.compileSdkVersion
     defaultConfig {
         applicationId "com.uowee.sample"
-        minSdkVersion 15
-        targetSdkVersion 26
-        versionCode 1
-        versionName "1.0"
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode rootProject.ext.versionCode
+        versionName rootProject.ext.versionName
         multiDexEnabled true
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
@@ -35,7 +35,7 @@ dependencies {
     implementation project(path: ':common-lib')
 }
 
-AssembleExt{
+AssembleExt {
     applicationName = "com.uowee.sample.app.AppApplication"
     isRegisterAuto = true
 }
